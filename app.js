@@ -5,7 +5,7 @@ const port = process.env.PORT || 5000
 
 server.get('/', function (req, res, next) {
     console.log('accessing the index page');
-    res.sendFile('./letter-hunt.html');
+    res.sendFile(path.join(__dirname, 'letter-hunt.html'));
 
 });
 
