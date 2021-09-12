@@ -7,7 +7,7 @@ server.use('/public', express.static(path.join(__dirname,'letter-hunt/002')));
 
 server.get('/', function (req, res, next) {
     console.log('accessing the index page');
-    res.sendFile(path.join(__dirname,'letter-hunt/002', 'letter-hunt.html'));
+    res.sendFile(path.join(__dirname, 'letter-hunt.html'));
 
 });
 
