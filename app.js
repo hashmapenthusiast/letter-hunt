@@ -5,7 +5,7 @@ const port = 3000
 
 server.get('/', function (req, res, next) {
     console.log('accessing the index page');
-    res.send('./letter-hunt.html');
+    res.send('./index.html');
 
 });
 
