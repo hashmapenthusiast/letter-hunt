@@ -21,7 +21,8 @@ td {
 
 #find-letter {
     font-size: 600px;
-    width: 6ch;
+    width: 100%;
+    text-align: center;
 }
 
 #stats {
