@@ -289,36 +289,36 @@ window.onload = function (event) {
     const DOMTELLER = function (e, carrier ) {
         console.log(e, e.key)
         let p = document.createElement('p')
-        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data} droidCarrier->${carrier} keyCode->${e.keyCode} which->${which}`;
+        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data} droidCarrier->${carrier} keyCode->${e.keyCode} which->${e.which}`;
         document.body.appendChild(p)
         console.log(p)
-        this.preventDefault();
+        e.preventDefault();
     }
 
 
     //ANDROID TESTING
     let droidCarrier = []
-    GAME_LETTER.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', function (event) {
         DOMTELLER(event);
     })
-    GAME_LETTER.addEventListener('compositionstart', function (event) {
+    document.addEventListener('compositionstart', function (event) {
         droidCarrier.push(data)
         DOMTELLER(event, droidCarrier);
     })
-    GAME_LETTER.addEventListener('input', function (event) {
+    document.addEventListener('input', function (event) {
         DOMTELLER(event);
     })
-    GAME_LETTER.addEventListener('compositionupdate', function (event) {
+    document.addEventListener('compositionupdate', function (event) {
         droidCarrier.push(data)
         DOMTELLER(event, droidCarrier);
     })
-    GAME_LETTER.addEventListener('keyup', function (event) {
+    document.addEventListener('keyup', function (event) {
         DOMTELLER(event);
     })
-    GAME_LETTER.addEventListener('compositionend', function (event) {
+    document.addEventListener('compositionend', function (event) {
         DOMTELLER(event);
     })
-    GAME_LETTER.addEventListener('paste', function (event) {
+    document.addEventListener('paste', function (event) {
         DOMTELLER(event);
     })
 
