@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+table {
+    border-spacing: 0;
+}
+
+td {
+    border: 1px solid black;
+}
+
+.capsLockOn {
+    background-color: red;
+}
+
+.capsLockOff {
+    background-color: white;
+}
+
+#find-letter {
+    font-size: 600px;
+    width: 6ch;
+}
+
+#stats {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+    gap:10px;
+}
+
+.statHolder {
+    display: flex;
+    flex-direction: column;
+}

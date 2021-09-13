@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LETTER HUNT</title>
+    <link rel="stylesheet" href="/public/letter-hunt.css">
+</head>
+
+<body>
+
+    <main>
+        <h1>LETTER HUNT</h1>
+        <section id="controls">
+            <label for="lowercaseCheckbox" id="lowercaseCheckboxContainer">
+                <input type="checkbox" name="lowercase" id="lowercaseCheckbox" checked>
+                lowercase
+            </label>
+
+            <label for="uppercaseCheckbox" id="uppercaseCheckboxContainer">
+                <input type="checkbox" name="uppercase" id="uppercaseCheckbox">
+                uppercase
+            </label>
+
+            <label for="numberCheckbox" id="numberCheckboxContainer">
+                <input type="checkbox" name="numbers" id="numberCheckbox">
+                number
+            </label>
+
+            <label for="specialCheckbox" id="specialCheckboxContainer">
+                <input type="checkbox" name="symbols" id="specialCheckbox">
+                special characters
+            </label>
+        </section>
+
+        <div>PRESS</div>
+        <div><input type="text" name="" id="find-letter" readonly></div>
+        
+        <aside id="info">
+            <div id="capsLock">CAPS LOCK</div>
+            <div id="stats">
+                <table id="lowercaseStats" class="statHolder"></table>
+                <table id="uppercaseStats" class="statHolder"></table>
+                <table id="numberStats" class="statHolder"></table>
+                <table id="specialStats" class="statHolder"></table>
+            </div>
+        </aside>
+    </main>
+    <script src="/public/letter-hunt.js"></script>
+</body>
+
+</html>
