@@ -286,10 +286,10 @@ window.onload = function (event) {
 
     });
 
-    const DOMTELLER = function (e, carrier) {
+    const DOMTELLER = function (e, carrier ) {
         console.log(e, e.key)
         let p = document.createElement('p')
-        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data} droidCarrier->${carrier}`;
+        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data} droidCarrier->${carrier} keyCode->${e.keyCode}`;
         document.body.appendChild(p)
         console.log(p)
         this.preventDefault();
