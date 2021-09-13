@@ -316,6 +316,10 @@ window.onload = function (event) {
         DOMTELLER(event);
         event.preventDefault()
     })
+    GAME_LETTER.addEventListener('compositionend', function (event) {
+        DOMTELLER(event);
+        event.preventDefault();
+    })
 
     //PREVENTS THE CHECKBOXES FROM BEING DELETED!
     const GAME_WATCHER = new MutationObserver(function (mutation) {
