@@ -286,6 +286,11 @@ window.onload = function (event) {
 
     });
 
+    //prevent input in a textbox
+    GAME_LETTER.addEventListener('keydown',function(event){
+        event.preventDefault();
+    })
+
     //PREVENTS THE CHECKBOXES FROM BEING DELETED!
     const GAME_WATCHER = new MutationObserver(function (mutation) {
         if (mutation[0].removedNodes.length > 0) {
