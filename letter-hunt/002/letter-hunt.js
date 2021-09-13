@@ -302,14 +302,12 @@ window.onload = function (event) {
         DOMTELLER(event);
     })
     document.addEventListener('compositionstart', function (event) {
-        droidCarrier.push(data)
         DOMTELLER(event, droidCarrier);
     })
     document.addEventListener('input', function (event) {
         DOMTELLER(event);
     })
     document.addEventListener('compositionupdate', function (event) {
-        droidCarrier.push(data)
         DOMTELLER(event, droidCarrier);
     })
     document.addEventListener('keyup', function (event) {
