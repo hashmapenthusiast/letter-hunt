@@ -286,20 +286,33 @@ window.onload = function (event) {
 
     });
 
+    const DOMTELLER = function (e) {
+        console.log(event)
+        let p = document.createElement('p')
+        p.innerHTML = e.type
+        document.body.appendChild(p)
+        console.log(p)
+        e.preventDefault();
+    }
     //prevent input in a textbox
-    GAME_LETTER.addEventListener('keydown',function(event){
-        event.preventDefault();
+    GAME_LETTER.addEventListener('keydown', function (event) {
+        DOMTELLER(event);
     })
-        GAME_LETTER.addEventListener('keyup',function(event){
-        event.preventDefault();
+    GAME_LETTER.addEventListener('keypress', function (event) {
+        DOMTELLER(event);
+
     })
-        GAME_LETTER.addEventListener('keypress',function(event){
-        event.preventDefault();
+    GAME_LETTER.addEventListener('keyup', function (event) {
+        DOMTELLER(event);
+
     })
-        GAME_LETTER.addEventListener('input',function(event){
-        event.preventDefault();
-            GAME_LETTER.style.color = 'red';
-            return false;
+    GAME_LETTER.addEventListener('input', function (event) {
+        DOMTELLER(event);
+
+    })
+    GAME_LETTER.addEventListener('change', function (event) {
+        DOMTELLER(event);
+
     })
 
     //PREVENTS THE CHECKBOXES FROM BEING DELETED!
