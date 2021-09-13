@@ -286,45 +286,49 @@ window.onload = function (event) {
 
     });
 
-    const DOMTELLER = function (e) {
+    const DOMTELLER = function (e, carrier = null) {
         console.log(e, e.key)
         let p = document.createElement('p')
-        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data}`;
+        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data}droidCarrier->${carrier}`;
         document.body.appendChild(p)
         console.log(p)
         this.preventDefault();
     }
-    //prevent input in a textbox
+
+
+    //ANDROID TESTING
+    let droidCarrier = []
     GAME_LETTER.addEventListener('keydown', function (event) {
-        DOMTELLER(event);
         event.preventDefault();
+        DOMTELLER(event);
 
     })
     GAME_LETTER.addEventListener('compositionstart', function (event) {
-        DOMTELLER(event);
         event.preventDefault()
+        droidCarrier.push(data)
+        DOMTELLER(event, droidCarrier);
     })
     GAME_LETTER.addEventListener('input', function (event) {
-        DOMTELLER(event);
         event.preventDefault();
+        DOMTELLER(event);
     })
     GAME_LETTER.addEventListener('compositionupdate', function (event) {
-        DOMTELLER(event);
-        return;
         event.preventDefault();
+        droidCarrier.push(data)
+
+        DOMTELLER(event, droidCarrier);
     })
     GAME_LETTER.addEventListener('keyup', function (event) {
-        DOMTELLER(event);
-        return;
         event.preventDefault()
+        DOMTELLER(event);
     })
     GAME_LETTER.addEventListener('compositionend', function (event) {
-        DOMTELLER(event);
         event.preventDefault();
+        DOMTELLER(event);
     })
     GAME_LETTER.addEventListener('paste', function (event) {
-        DOMTELLER(event);
         event.preventDefault();
+        DOMTELLER(event);
     })
 
     //PREVENTS THE CHECKBOXES FROM BEING DELETED!
