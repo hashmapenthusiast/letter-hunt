@@ -290,6 +290,12 @@ window.onload = function (event) {
     GAME_LETTER.addEventListener('keydown',function(event){
         event.preventDefault();
     })
+        GAME_LETTER.addEventListener('keyup',function(event){
+        event.preventDefault();
+    })
+        GAME_LETTER.addEventListener('keypress',function(event){
+        event.preventDefault();
+    })
 
     //PREVENTS THE CHECKBOXES FROM BEING DELETED!
     const GAME_WATCHER = new MutationObserver(function (mutation) {
