@@ -286,7 +286,7 @@ window.onload = function (event) {
 
     });
 
-    const DOMTELLER = function (e, carrier = null) {
+    const DOMTELLER = function (e, carrier) {
         console.log(e, e.key)
         let p = document.createElement('p')
         p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data} droidCarrier->${carrier}`;
