@@ -289,7 +289,7 @@ window.onload = function (event) {
     const DOMTELLER = function (e, carrier = null) {
         console.log(e, e.key)
         let p = document.createElement('p')
-        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data}droidCarrier->${carrier}`;
+        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data} droidCarrier->${carrier}`;
         document.body.appendChild(p)
         console.log(p)
         this.preventDefault();
@@ -299,35 +299,26 @@ window.onload = function (event) {
     //ANDROID TESTING
     let droidCarrier = []
     GAME_LETTER.addEventListener('keydown', function (event) {
-        event.preventDefault();
         DOMTELLER(event);
-
     })
     GAME_LETTER.addEventListener('compositionstart', function (event) {
-        event.preventDefault()
         droidCarrier.push(data)
         DOMTELLER(event, droidCarrier);
     })
     GAME_LETTER.addEventListener('input', function (event) {
-        event.preventDefault();
         DOMTELLER(event);
     })
     GAME_LETTER.addEventListener('compositionupdate', function (event) {
-        event.preventDefault();
         droidCarrier.push(data)
-
         DOMTELLER(event, droidCarrier);
     })
     GAME_LETTER.addEventListener('keyup', function (event) {
-        event.preventDefault()
         DOMTELLER(event);
     })
     GAME_LETTER.addEventListener('compositionend', function (event) {
-        event.preventDefault();
         DOMTELLER(event);
     })
     GAME_LETTER.addEventListener('paste', function (event) {
-        event.preventDefault();
         DOMTELLER(event);
     })
 
