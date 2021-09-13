@@ -1,4 +1,4 @@
-window.onload = function (event) {
+document.onload = function (event) {
 
 
 
@@ -224,7 +224,7 @@ window.onload = function (event) {
     GAME_LETTER.placeholder = randomCharacter(HUNTED_LETTERS[0]);
 
     //CAPS LOCK CHECK
-    window.addEventListener('keydown', function (e) {
+    document.addEventListener('keydown', function (e) {
         //if caps lock is true change the background to red, if its false change it to white and hide it
         if (e.getModifierState('CapsLock')) {
             CAPS_LOCK_INDICATOR.className = 'capsLockOn';
@@ -297,21 +297,18 @@ window.onload = function (event) {
     //prevent input in a textbox
     GAME_LETTER.addEventListener('keydown', function (event) {
         DOMTELLER(event);
-    })
-    GAME_LETTER.addEventListener('keypress', function (event) {
-        DOMTELLER(event);
+        event.preventDefault();
 
     })
     GAME_LETTER.addEventListener('keyup', function (event) {
         DOMTELLER(event);
+        event.preventDefault();
+
 
     })
     GAME_LETTER.addEventListener('input', function (event) {
         DOMTELLER(event);
-
-    })
-    GAME_LETTER.addEventListener('change', function (event) {
-        DOMTELLER(event);
+        event.preventDefault();
 
     })
 
