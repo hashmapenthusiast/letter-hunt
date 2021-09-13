@@ -299,6 +299,7 @@ window.onload = function (event) {
         GAME_LETTER.addEventListener('input',function(event){
         event.preventDefault();
             GAME_LETTER.style.color = 'red';
+            return false;
     })
 
     //PREVENTS THE CHECKBOXES FROM BEING DELETED!
