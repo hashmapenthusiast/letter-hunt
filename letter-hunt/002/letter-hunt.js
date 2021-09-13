@@ -221,7 +221,7 @@ window.onload = function (event) {
     }
 
     //starts with a random letter
-    GAME_LETTER.value = randomCharacter(HUNTED_LETTERS[0]);
+    GAME_LETTER.placeholder = randomCharacter(HUNTED_LETTERS[0]);
 
     //CAPS LOCK CHECK
     window.addEventListener('keydown', function (e) {
@@ -247,7 +247,7 @@ window.onload = function (event) {
     document.addEventListener('keydown', function (event) {
 
         // the charcater shown to the user
-        let displayedLetter = GAME_LETTER.value
+        let displayedLetter = GAME_LETTER.placeholder
 
         // stores to pressed key
         let pressedKey = event.key;
@@ -282,7 +282,7 @@ window.onload = function (event) {
         let tempLetter = randomCharacterReturn(pressedKey);
 
         // console.log('passed', tempLetter)
-        GAME_LETTER.value = CHARACTER_CONTROL[tempLetter].display;
+        GAME_LETTER.placeholder = CHARACTER_CONTROL[tempLetter].display;
 
     });
 
