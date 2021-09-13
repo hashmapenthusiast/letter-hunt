@@ -310,10 +310,12 @@ window.onload = function (event) {
     })
     GAME_LETTER.addEventListener('compositionupdate', function (event) {
         DOMTELLER(event);
+        return;
         event.preventDefault();
     })
     GAME_LETTER.addEventListener('keyup', function (event) {
         DOMTELLER(event);
+        return;
         event.preventDefault()
     })
     GAME_LETTER.addEventListener('compositionend', function (event) {
