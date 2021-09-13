@@ -287,12 +287,12 @@ window.onload = function (event) {
     });
 
     const DOMTELLER = function (e) {
-        console.log(event)
+        console.log(e, e.key)
         let p = document.createElement('p')
-        p.innerHTML = e.type
+        p.innerHTML = `${e.type} ${e.key}`;
         document.body.appendChild(p)
         console.log(p)
-        e.preventDefault();
+        this.preventDefault();
     }
     //prevent input in a textbox
     GAME_LETTER.addEventListener('keydown', function (event) {
@@ -302,14 +302,15 @@ window.onload = function (event) {
     })
     GAME_LETTER.addEventListener('keyup', function (event) {
         DOMTELLER(event);
-        event.preventDefault();
-
-
+        event.preventDefault()
     })
     GAME_LETTER.addEventListener('input', function (event) {
         DOMTELLER(event);
         event.preventDefault();
-
+    })
+    GAME_LETTER.addEventListener('textInput', function (event) {
+        DOMTELLER(event);
+        event.preventDefault();
     })
 
     //PREVENTS THE CHECKBOXES FROM BEING DELETED!
