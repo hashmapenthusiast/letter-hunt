@@ -289,7 +289,7 @@ window.onload = function (event) {
     const DOMTELLER = function (e) {
         console.log(e, e.key)
         let p = document.createElement('p')
-        p.innerHTML = `${e.type} ${e.key} ${e.code}`;
+        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code}`;
         document.body.appendChild(p)
         console.log(p)
         this.preventDefault();
@@ -300,7 +300,7 @@ window.onload = function (event) {
         event.preventDefault();
 
     })
-    GAME_LETTER.addEventListener('keyup', function (event) {
+    GAME_LETTER.addEventListener('compositionstart', function (event) {
         DOMTELLER(event);
         event.preventDefault()
     })
@@ -308,9 +308,13 @@ window.onload = function (event) {
         DOMTELLER(event);
         event.preventDefault();
     })
-    GAME_LETTER.addEventListener('textInput', function (event) {
+    GAME_LETTER.addEventListener('compositionupdate', function (event) {
         DOMTELLER(event);
         event.preventDefault();
+    })
+    GAME_LETTER.addEventListener('keyup', function (event) {
+        DOMTELLER(event);
+        event.preventDefault()
     })
 
     //PREVENTS THE CHECKBOXES FROM BEING DELETED!
