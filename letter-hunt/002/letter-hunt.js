@@ -289,7 +289,7 @@ window.onload = function (event) {
     const DOMTELLER = function (e) {
         console.log(e, e.key)
         let p = document.createElement('p')
-        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code}`;
+        p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data}`;
         document.body.appendChild(p)
         console.log(p)
         this.preventDefault();
