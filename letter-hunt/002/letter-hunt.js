@@ -291,13 +291,18 @@ window.onload = function (event) {
 
     //ANDROID TESTING
     document.addEventListener('compositionupdate', function (event) {
-        GAME_LETTER.value = '';
-        
         // the charcater shown to the user
         let displayedLetter = GAME_LETTER.placeholder
-
+        
         // stores to pressed key
         let pressedKey = event.data;
+
+        let info = document.createElement('p');
+        p.innerHTML = `
+        data->${pressedKey}<br>
+        placeholder->${displayedLetter}<br>
+        test equal->${pressedKey === displayedLetter}
+        `
 
         //exits if the character is not part of the control
         if (CHARACTER_CONTROL[pressedKey] === undefined) {
@@ -320,13 +325,13 @@ window.onload = function (event) {
 
 
         let p = document.createElement('p');
-        if (event.data === GAME_LETTER.placeholder) {
+        if (event.data === displayedLetter) {
             p.innerHTML = `that worked data->${event.data} placeholder->${GAME_LETTER.placeholder}`;
+            GAME_LETTER.value = '';
         } else {
             p.innerHTML = `negative ghost rider`;
         }
         document.body.appendChild(p)
-        this.value = '';
 
     })
 
