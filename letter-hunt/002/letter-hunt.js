@@ -299,8 +299,8 @@ window.onload = function (event) {
     //ANDROID TESTING
     document.addEventListener('compositionupdate', function (event) {
         let p = document.createElement('p');
-        if (event.data = GAME_LETTER.placeholder){
-            p.innerHTML = `that worked`;
+        if (event.data === GAME_LETTER.placeholder){
+            p.innerHTML = `that worked data->${event.data} placeholder->${GAME_LETTER.placeholder}`;
         } else {
             p.innerHTML = `negative ghost rider`; 
         }
