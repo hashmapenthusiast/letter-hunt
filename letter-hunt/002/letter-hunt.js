@@ -298,10 +298,7 @@ window.onload = function (event) {
         let pressedKey = event.data;
 
         let info = document.createElement('p');
-        info.innerHTML = `
-        data->${pressedKey}<br>
-        placeholder->${displayedLetter}<br>
-        test equal->${pressedKey === displayedLetter}
+        info.innerHTML = `data->${pressedKey}   placeholder->${displayedLetter}   test equal->${pressedKey === displayedLetter}
         `;
         document.appendChild(info)
 
@@ -327,7 +324,7 @@ window.onload = function (event) {
 
 
         let p = document.createElement('p');
-        if (event.data === displayedLetter) {
+        if (pressedKey === displayedLetter) {
             p.innerHTML = `that worked data->${event.data} placeholder->${GAME_LETTER.placeholder}`;
             GAME_LETTER.value = '';
         } else {
