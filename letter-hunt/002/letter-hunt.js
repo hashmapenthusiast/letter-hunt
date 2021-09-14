@@ -286,7 +286,7 @@ window.onload = function (event) {
 
     });
 
-    const DOMTELLER = function (e, carrier ) {
+    const DOMTELLER = function (e, carrier) {
         console.log(e, e.key)
         let p = document.createElement('p')
         p.innerHTML = `eventype->${e.type} keypressed->${e.key} code->${e.code} data->${e.data} droidCarrier->${carrier} keyCode->${e.keyCode} which->${e.which}`;
@@ -297,26 +297,18 @@ window.onload = function (event) {
 
 
     //ANDROID TESTING
-    let droidCarrier = []
-    document.addEventListener('keydown', function (event) {
-        DOMTELLER(event);
-    })
+    let droidCarrier0 , droidCarrier1; 
     document.addEventListener('compositionstart', function (event) {
-        DOMTELLER(event, droidCarrier);
-    })
-    document.addEventListener('input', function (event) {
-        DOMTELLER(event);
+        droidCarrier0 = event.data;
     })
     document.addEventListener('compositionupdate', function (event) {
-        DOMTELLER(event, droidCarrier);
-    })
-    document.addEventListener('keyup', function (event) {
-        DOMTELLER(event);
+        droidCarrier1 = event.data;
+        let p = document.createElement('p');
+        p.innerHTML = droidCarrier0 + ' ' + droidCarrier1
+        document.body.appendChild(p)
+
     })
     document.addEventListener('compositionend', function (event) {
-        DOMTELLER(event);
-    })
-    document.addEventListener('paste', function (event) {
         DOMTELLER(event);
     })
 
