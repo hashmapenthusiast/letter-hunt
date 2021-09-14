@@ -247,6 +247,8 @@ window.onload = function (event) {
 
     //This is the game on pc and iphone
     document.addEventListener('keydown', function (event) {
+        GAME_LETTER.value = '';
+
 
         // the charcater shown to the user
         let displayedLetter = GAME_LETTER.placeholder
@@ -289,7 +291,8 @@ window.onload = function (event) {
 
     //ANDROID TESTING
     document.addEventListener('compositionupdate', function (event) {
-
+        GAME_LETTER.value = '';
+        
         // the charcater shown to the user
         let displayedLetter = GAME_LETTER.placeholder
 
@@ -314,7 +317,6 @@ window.onload = function (event) {
 
         // console.log('passed', tempLetter)
         GAME_LETTER.placeholder = CHARACTER_CONTROL[tempLetter].display;
-        GAME_LETTER.value = '';
 
 
         let p = document.createElement('p');
