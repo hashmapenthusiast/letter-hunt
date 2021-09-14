@@ -300,11 +300,14 @@ window.onload = function (event) {
     let droidCarrier0 , droidCarrier1; 
     document.addEventListener('compositionstart', function (event) {
         droidCarrier0 = event.data;
+        let p = document.createElement('p');
+        p.innerHTML = `compStart ${event.data} \n`
+        document.body.appendChild(p)
     })
     document.addEventListener('compositionupdate', function (event) {
         droidCarrier1 = event.data;
         let p = document.createElement('p');
-        p.innerHTML = droidCarrier0 + ' ' + droidCarrier1
+        pp.innerHTML = `compStart ${event.data} \n droid0${droidCarrier0}`
         document.body.appendChild(p)
 
     })
