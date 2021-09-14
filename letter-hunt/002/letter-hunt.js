@@ -300,8 +300,7 @@ window.onload = function (event) {
         let pressedKey = event.data;
 
         let info = document.createElement('p');
-        info.innerHTML = `data->${pressedKey}   placeholder->${displayedLetter}   test equal->${pressedKey === displayedLetter}
-        `;
+        info.innerHTML = `data->${pressedKey}   placeholder->${displayedLetter}   test equal->${pressedKey === displayedLetter}  stall finding->${CHARACTER_CONTROL[pressedKey].display}`;
         document.body.appendChild(info)
 
 
