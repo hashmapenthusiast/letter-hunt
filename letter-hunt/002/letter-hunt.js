@@ -298,11 +298,13 @@ window.onload = function (event) {
         let pressedKey = event.data;
 
         let info = document.createElement('p');
-        p.innerHTML = `
+        info.innerHTML = `
         data->${pressedKey}<br>
         placeholder->${displayedLetter}<br>
         test equal->${pressedKey === displayedLetter}
-        `
+        `;
+        document.appendChild(info)
+
 
         //exits if the character is not part of the control
         if (CHARACTER_CONTROL[pressedKey] === undefined) {
