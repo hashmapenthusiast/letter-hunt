@@ -307,7 +307,7 @@ window.onload = function (event) {
     document.addEventListener('compositionupdate', function (event) {
         droidCarrier1 = event.data;
         let p = document.createElement('p');
-        pp.innerHTML = `compStart ${event.data} \n droid0${droidCarrier0}`
+        p.innerHTML = `compUpdate ${event.data} \n droid0${droidCarrier0}`
         document.body.appendChild(p)
 
     })
