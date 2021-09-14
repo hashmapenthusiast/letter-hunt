@@ -288,10 +288,14 @@ window.onload = function (event) {
 
     });
 
-    function DOMTELLER(string){
+    function DOMTELLER(yesss) {
+        // console.log(1)
         let m = document.createElement('p');
-        m.innerHTML(string);
+        // console.log(2)
+        m.innerHTML = yesss;
+        // console.log(3)
         document.body.appendChild(m)
+        // console.log(4)
     }
 
     //ANDROID TESTING
@@ -301,7 +305,7 @@ window.onload = function (event) {
 
         // the charcater shown to the user
         let displayedLetter = GAME_LETTER.placeholder
-        
+
         // stores to pressed key
         let pressedKey = event.data;
 
@@ -340,7 +344,7 @@ window.onload = function (event) {
         document.body.appendChild(p)
 
     });
-    GAME_LETTER.addEventListener('input',function(event){
+    GAME_LETTER.addEventListener('input', function (event) {
         GAME_LETTER.value = '';
     })
 
