@@ -288,9 +288,15 @@ window.onload = function (event) {
 
     });
 
+    function DOMTELLER(string){
+        let m = document.createElement('p');
+        m.innerHTML(string);
+        document.body.appendChild(m)
+    }
 
     //ANDROID TESTING
     document.addEventListener('compositionupdate', function (event) {
+        DOMTELLER(`event.data->${event.data}, typeof->${typeof event.data}`)
         GAME_LETTER.value = '';
 
         // the charcater shown to the user
