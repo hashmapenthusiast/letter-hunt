@@ -334,6 +334,9 @@ window.onload = function (event) {
         }
         document.body.appendChild(p)
 
+    });
+    GAME_LETTER.addEventListener('input',function(event){
+        GAME_LETTER.value = '';
     })
 
 
