@@ -309,9 +309,7 @@ window.onload = function (event) {
         // stores to pressed key
         let pressedKey = event.data;
 
-        let info = document.createElement('p');
-        info.innerHTML = `data->${pressedKey}   placeholder->${displayedLetter}   test equal->${pressedKey === displayedLetter}  stall finding->${CHARACTER_CONTROL[pressedKey].display}`;
-        document.body.appendChild(info)
+        DOMTELLER(`data->${pressedKey}   placeholder->${displayedLetter}   test equal->${pressedKey === displayedLetter}  stall finding->${CHARACTER_CONTROL[pressedKey].display}`)
 
 
         //exits if the character is not part of the control
@@ -337,7 +335,6 @@ window.onload = function (event) {
         let p = document.createElement('p');
         if (pressedKey === displayedLetter) {
             p.innerHTML = `that worked data->${event.data} placeholder->${GAME_LETTER.placeholder}`;
-            GAME_LETTER.value = '';
         } else {
             p.innerHTML = `negative ghost rider`;
         }
