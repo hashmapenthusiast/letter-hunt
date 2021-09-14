@@ -297,23 +297,18 @@ window.onload = function (event) {
 
 
     //ANDROID TESTING
-    let droidCarrier0 , droidCarrier1; 
-    document.addEventListener('compositionstart', function (event) {
-        droidCarrier0 = event.data;
-        let p = document.createElement('p');
-        p.innerHTML = `compStart ${event.data} \n`
-        document.body.appendChild(p)
-    })
     document.addEventListener('compositionupdate', function (event) {
-        droidCarrier1 = event.data;
         let p = document.createElement('p');
-        p.innerHTML = `compUpdate ${event.data} \n droid0${droidCarrier0}`
+        if (event.data = GAME_LETTER.placeholder){
+            p.innerHTML = `that worked`;
+        } else {
+            p.innerHTML = `negative ghost rider`; 
+        }
         document.body.appendChild(p)
+        this.value = '';
 
     })
-    document.addEventListener('compositionend', function (event) {
-        DOMTELLER(event);
-    })
+
 
     //PREVENTS THE CHECKBOXES FROM BEING DELETED!
     const GAME_WATCHER = new MutationObserver(function (mutation) {
