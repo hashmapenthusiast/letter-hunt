@@ -300,7 +300,7 @@ window.onload = function (event) {
         let info = document.createElement('p');
         info.innerHTML = `data->${pressedKey}   placeholder->${displayedLetter}   test equal->${pressedKey === displayedLetter}
         `;
-        document.appendChild(info)
+        document.body.appendChild(info)
 
 
         //exits if the character is not part of the control
