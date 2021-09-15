@@ -317,6 +317,7 @@ window.onload = function (event) {
 
     function eventTracker(eventName, event, params) {
         console.log(`starting->${eventName}`);
+        console.log(`event->${event} params->${params}`);
         event(params);
         console.log(`finishing->${eventName}`);
     }
