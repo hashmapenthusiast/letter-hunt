@@ -317,7 +317,12 @@ window.onload = function (event) {
 
     function eventTracker(eventName, event, params) {
         console.log(`starting->${eventName}`);
-        console.log(`event->${event} params->${params}`);
+        console.log(`event->${eventName} params->${params}`);
+        let keys = Object.keys(params[0]);
+        for(let i = 0 ;i < keys.length; i++){
+            console.log(`key->${keys[i]}:${params[0][keys[i]]}`)
+        }
+        
         event(params);
         console.log(`finishing->${eventName}`);
     }
