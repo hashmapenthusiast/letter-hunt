@@ -243,11 +243,6 @@ window.onload = function (event) {
         });
     });
 
-    function eventTracker(eventName, event) {
-        console.log(`starting->${eventName}`);
-        event();
-        console.log(`finishing->${eventName}`);
-    }
 
     function keyboardPressEvent(event) {
         // the charcater shown to the user
@@ -318,20 +313,18 @@ window.onload = function (event) {
         // console.log('passed', tempLetter)
         GAME_LETTER.placeholder = CHARACTER_CONTROL[tempLetter].display;
 
+    }
 
-        let p = document.createElement('p');
-        if (pressedKey === displayedLetter) {
-            p.innerHTML = `that worked data->${event.data} placeholder->${GAME_LETTER.placeholder}`;
-        } else {
-            p.innerHTML = `negative ghost rider`;
-        }
-        document.body.appendChild(p)
+    function eventTracker(eventName, event, params) {
+        console.log(`starting->${eventName}`);
+        event(params);
+        console.log(`finishing->${eventName}`);
     }
 
     //This is the game on pc and iphone
     document.addEventListener('keydown', function (event) {
         eventTracker('keydown',
-            keyboardPressEvent(event)
+            keyboardPressEvent, event
         )
     });
 
@@ -339,11 +332,11 @@ window.onload = function (event) {
     //ANDROID TESTING
     document.addEventListener('compositionupdate', function (event) {
         eventTracker('compositionUpdate',
-            compositionupdateEvent(event)
+            compositionupdateEvent, event
         )
     });
 
-    
+
     GAME_LETTER.addEventListener('input', function (event) {
         GAME_LETTER.value = '';
     })
