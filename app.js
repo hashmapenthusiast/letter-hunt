@@ -13,5 +13,6 @@ server.get('/', function (req, res, next) {
 });
 
 server.listen(port, function () {
+    console.log(__dirname);
     console.log(`listening on port ${port}`)
 });
