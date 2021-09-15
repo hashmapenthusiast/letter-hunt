@@ -244,76 +244,76 @@ window.onload = function (event) {
     });
 
 
-    function keyboardPressEvent(event) {
-        // the charcater shown to the user
-        let displayedLetter = GAME_LETTER.placeholder
+    // function keyboardPressEvent(event) {
+    //     // the charcater shown to the user
+    //     let displayedLetter = GAME_LETTER.placeholder
 
-        // stores to pressed key
-        let pressedKey = event.key;
-        console.log(pressedKey);
+    //     // stores to pressed key
+    //     let pressedKey = event.key;
+    //     console.log(pressedKey);
 
-        // JANKY HACK TO PREVENT SCOLLING ACTION--------------------------------
-        event.preventDefault();
-        if (pressedKey === CHARACTER_CONTROL[' '].key) {
-        }
-        //----------------------------------------------------------------------
+    //     // JANKY HACK TO PREVENT SCOLLING ACTION--------------------------------
+    //     event.preventDefault();
+    //     if (pressedKey === CHARACTER_CONTROL[' '].key) {
+    //     }
+    //     //----------------------------------------------------------------------
 
-        //exits if the character is not part of the control
-        if (CHARACTER_CONTROL[pressedKey] === undefined) {
-            throw Error('somehow you pressed a key i don\'t know about');
-        }
-        //exits if the display does not match the control
-        if (CHARACTER_CONTROL[pressedKey].display !== displayedLetter) {
-            throw Error('no match on the press to the screen')
-        }
+    //     //exits if the character is not part of the control
+    //     if (CHARACTER_CONTROL[pressedKey] === undefined) {
+    //         throw Error('somehow you pressed a key i don\'t know about');
+    //     }
+    //     //exits if the display does not match the control
+    //     if (CHARACTER_CONTROL[pressedKey].display !== displayedLetter) {
+    //         throw Error('no match on the press to the screen')
+    //     }
 
-        // score table updator
-        // console.log(pressedKey)
-        // console.log(CHARACTER_CONTROL[pressedKey])
-        // console.log(CHARACTER_CONTROL[pressedKey].display)
-        let scoreHolder = document.querySelector(`#count-${CHARACTER_CONTROL[pressedKey].selector}`);
-        scoreHolder.dataset.value++;
-        scoreHolder.innerHTML = scoreHolder.dataset.value;
+    //     // score table updator
+    //     // console.log(pressedKey)
+    //     // console.log(CHARACTER_CONTROL[pressedKey])
+    //     // console.log(CHARACTER_CONTROL[pressedKey].display)
+    //     let scoreHolder = document.querySelector(`#count-${CHARACTER_CONTROL[pressedKey].selector}`);
+    //     scoreHolder.dataset.value++;
+    //     scoreHolder.innerHTML = scoreHolder.dataset.value;
 
-        // finds a new letter
-        let tempLetter = randomCharacterReturn(pressedKey);
+    //     // finds a new letter
+    //     let tempLetter = randomCharacterReturn(pressedKey);
 
-        // console.log('passed', tempLetter)
-        GAME_LETTER.placeholder = CHARACTER_CONTROL[tempLetter].display;
-    }
+    //     // console.log('passed', tempLetter)
+    //     GAME_LETTER.placeholder = CHARACTER_CONTROL[tempLetter].display;
+    // }
 
-    function compositionupdateEvent(event) {
-        let keys = Object.keys(event)
-        for (let i = 0; i < keys.length; i++) {
-            console.log(event[keys[i]]);
-        }
+    // function compositionupdateEvent(event) {
+    //     let keys = Object.keys(event)
+    //     for (let i = 0; i < keys.length; i++) {
+    //         console.log(event[keys[i]]);
+    //     }
 
-        // the charcater shown to the user
-        let displayedLetter = GAME_LETTER.placeholder
+    //     // the charcater shown to the user
+    //     let displayedLetter = GAME_LETTER.placeholder
 
-        // stores to pressed key
-        let pressedKey = event.data;
+    //     // stores to pressed key
+    //     let pressedKey = event.data;
 
-        //exits if the character is not part of the control
-        if (CHARACTER_CONTROL[pressedKey] === undefined) {
-            throw Error('somehow you pressed a key i don\'t know about');
-        }
-        //exits if the display does not match the control
-        if (CHARACTER_CONTROL[pressedKey].display !== displayedLetter) {
-            throw Error('no match on the press to the screen')
-        }
+    //     //exits if the character is not part of the control
+    //     if (CHARACTER_CONTROL[pressedKey] === undefined) {
+    //         throw Error('somehow you pressed a key i don\'t know about');
+    //     }
+    //     //exits if the display does not match the control
+    //     if (CHARACTER_CONTROL[pressedKey].display !== displayedLetter) {
+    //         throw Error('no match on the press to the screen')
+    //     }
 
-        let scoreHolder = document.querySelector(`#count-${CHARACTER_CONTROL[pressedKey].selector}`);
-        scoreHolder.dataset.value++;
-        scoreHolder.innerHTML = scoreHolder.dataset.value;
+    //     let scoreHolder = document.querySelector(`#count-${CHARACTER_CONTROL[pressedKey].selector}`);
+    //     scoreHolder.dataset.value++;
+    //     scoreHolder.innerHTML = scoreHolder.dataset.value;
 
-        // finds a new letter
-        let tempLetter = randomCharacterReturn(pressedKey);
+    //     // finds a new letter
+    //     let tempLetter = randomCharacterReturn(pressedKey);
 
-        // console.log('passed', tempLetter)
-        GAME_LETTER.placeholder = CHARACTER_CONTROL[tempLetter].display;
+    //     // console.log('passed', tempLetter)
+    //     GAME_LETTER.placeholder = CHARACTER_CONTROL[tempLetter].display;
 
-    }
+    // }
 
     function eventTracker(eventName, event, params) {
         console.log(`starting->${eventName}`);
@@ -325,27 +325,44 @@ window.onload = function (event) {
     }
 
     //This is the game on pc and iphone
-    document.addEventListener('keydown', function (event) {
-        eventTracker('keydown',
-            keyboardPressEvent, event
-        )
-    });
+    // document.addEventListener('keydown', function (event) {
+    //     eventTracker('keydown',
+    //         keyboardPressEvent, event
+    //     )
+    // });
 
 
     //ANDROID TESTING
-    document.addEventListener('compositionupdate', function (event) {
-        eventTracker('compositionUpdate',
-            compositionupdateEvent, event
-        )
-    });
+    // document.addEventListener('compositionupdate', function (event) {
+    //     eventTracker('compositionUpdate',
+    //         compositionupdateEvent, event
+    //     )
+    // });
 
 
     GAME_LETTER.addEventListener('input', function (event) {
         eventTracker('#findletter-:input',
             (function(){})(), event
         )
+        let pressedKey = event.data,
+        displayedLetter = GAME_LETTER.placeholder;
 
+        if (CHARACTER_CONTROL[pressedKey] === undefined) {
+            throw Error('somehow you pressed a key i don\'t know about');
+        }
+        //exits if the display does not match the control
+        if (CHARACTER_CONTROL[pressedKey].display !== displayedLetter) {
+            throw Error('no match on the press to the screen')
+        }
+        let scoreHolder = document.querySelector(`#count-${CHARACTER_CONTROL[pressedKey].selector}`);
+        scoreHolder.dataset.value++;
+        scoreHolder.innerHTML = scoreHolder.dataset.value;
 
+        // finds a new letter
+        let tempLetter = randomCharacterReturn(pressedKey);
+
+        // console.log('passed', tempLetter)
+        GAME_LETTER.placeholder = CHARACTER_CONTROL[tempLetter].display;
         GAME_LETTER.value = '';
     })
 
