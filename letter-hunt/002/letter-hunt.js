@@ -87,8 +87,8 @@ window.onload = function (event) {
             "key": e
         };
     })
-    console.log(REMAPPED_SPECIAL_CHARACTERS)
-    console.log(CHARACTER_CONTROL);
+    // console.log(REMAPPED_SPECIAL_CHARACTERS)
+    // console.log(CHARACTER_CONTROL);
 
     /**
      * Creates a table with the character on the left and a score setting on the right
@@ -341,9 +341,10 @@ window.onload = function (event) {
 
 
     GAME_LETTER.addEventListener('input', function (event) {
-        eventTracker('#findletter-:input',
-            (function(){})(), event
-        )
+        // eventTracker('#findletter-:input',
+        //     (function(){})(), event
+        // )
+        GAME_LETTER.value = '';
         let pressedKey = event.data,
         displayedLetter = GAME_LETTER.placeholder;
 
@@ -363,7 +364,6 @@ window.onload = function (event) {
 
         // console.log('passed', tempLetter)
         GAME_LETTER.placeholder = CHARACTER_CONTROL[tempLetter].display;
-        GAME_LETTER.value = '';
     })
 
 
