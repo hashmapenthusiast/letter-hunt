@@ -247,9 +247,6 @@ window.onload = function (event) {
 
     //This is the game on pc and iphone
     document.addEventListener('keydown', function (event) {
-        GAME_LETTER.value = '';
-
-
         // the charcater shown to the user
         let displayedLetter = GAME_LETTER.placeholder
 
@@ -297,20 +294,19 @@ window.onload = function (event) {
         document.body.appendChild(m)
         // console.log(4)
     }
-
+    
     //ANDROID TESTING
     document.addEventListener('compositionupdate', function (event) {
-        DOMTELLER(`event.data->${event.data}, typeof->${typeof event.data}`)
-        GAME_LETTER.value = '';
+        let keys = Object.keys(event)
+        for(let i = 0; i < keys.length; i++){
+            console.log(event[keys[i]]);
+        }
 
         // the charcater shown to the user
         let displayedLetter = GAME_LETTER.placeholder
 
         // stores to pressed key
         let pressedKey = event.data;
-
-        DOMTELLER(`data->${pressedKey}   placeholder->${displayedLetter}   test equal->${pressedKey === displayedLetter}  stall finding->${CHARACTER_CONTROL[pressedKey].display}`)
-
 
         //exits if the character is not part of the control
         if (CHARACTER_CONTROL[pressedKey] === undefined) {
