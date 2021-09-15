@@ -243,10 +243,13 @@ window.onload = function (event) {
         });
     });
 
+    function eventTracker(eventName, event) {
+        console.log(`starting->${eventName}`);
+        event();
+        console.log(`finishing->${eventName}`);
+    }
 
-
-    //This is the game on pc and iphone
-    document.addEventListener('keydown', function (event) {
+    function keyboardPressEvent(event) {
         // the charcater shown to the user
         let displayedLetter = GAME_LETTER.placeholder
 
@@ -282,23 +285,11 @@ window.onload = function (event) {
 
         // console.log('passed', tempLetter)
         GAME_LETTER.placeholder = CHARACTER_CONTROL[tempLetter].display;
-
-    });
-
-    function DOMTELLER(yesss) {
-        // console.log(1)
-        let m = document.createElement('p');
-        // console.log(2)
-        m.innerHTML = yesss;
-        // console.log(3)
-        document.body.appendChild(m)
-        // console.log(4)
     }
-    
-    //ANDROID TESTING
-    document.addEventListener('compositionupdate', function (event) {
+
+    function compositionupdateEvent(event) {
         let keys = Object.keys(event)
-        for(let i = 0; i < keys.length; i++){
+        for (let i = 0; i < keys.length; i++) {
             console.log(event[keys[i]]);
         }
 
@@ -335,8 +326,24 @@ window.onload = function (event) {
             p.innerHTML = `negative ghost rider`;
         }
         document.body.appendChild(p)
+    }
 
+    //This is the game on pc and iphone
+    document.addEventListener('keydown', function (event) {
+        eventTracker('keydown',
+            keyboardPressEvent(event)
+        )
     });
+
+
+    //ANDROID TESTING
+    document.addEventListener('compositionupdate', function (event) {
+        eventTracker('compositionUpdate',
+            compositionupdateEvent(event)
+        )
+    });
+
+    
     GAME_LETTER.addEventListener('input', function (event) {
         GAME_LETTER.value = '';
     })
