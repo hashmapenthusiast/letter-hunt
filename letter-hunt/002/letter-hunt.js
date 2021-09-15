@@ -318,10 +318,7 @@ window.onload = function (event) {
     function eventTracker(eventName, event, params) {
         console.log(`starting->${eventName}`);
         console.log(`event->${eventName} params->${params}`);
-        let keys = Object.keys(params[0]);
-        for(let i = 0 ;i < keys.length; i++){
-            console.log(`key->${keys[i]}:${params[0][keys[i]]}`)
-        }
+        console.table(params,'index');
         
         event(params);
         console.log(`finishing->${eventName}`);
@@ -344,6 +341,11 @@ window.onload = function (event) {
 
 
     GAME_LETTER.addEventListener('input', function (event) {
+        eventTracker('#findletter-:input',
+            (function(){})(), event
+        )
+
+
         GAME_LETTER.value = '';
     })
 
